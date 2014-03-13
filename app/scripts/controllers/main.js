@@ -1,10 +1,48 @@
 'use strict';
 
 angular.module('todoApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+	.controller('MainCtrl', function($scope) {
+		$scope.todos = ['Item 1', 'Item 2'];
+		$scope.addTodo = function() {
+			$scope.todos.push($scope.todo);
+			$scope.todo = '';
+		};
+		$scope.removeTodo = function(index) {
+			$scope.todos.splice(index, 1);
+		};
+	});
+
+
+// Exception handling example 1
+
+// 'use strict';
+
+// angular.module('todoApp')
+//   .controller('MainCtrl', function ($scope) {
+//     $scope.todos = ['Item 1', 'Item 2', 'Item 3'];
+//     $scope.addTodo = function() {
+//			try {
+// 		$scope.todos.push($scope.todo);
+// 		$scope.todo = ''; }
+// 		catch (e) {
+// 			alert("Encountered an error: " + e);
+// 		}
+//     };
+//   });
+
+// Exception handling example 2
+
+// 'use strict';
+
+// angular.module('todoApp')
+//   .controller('MainCtrl', function ($scope) {
+//     $scope.todos = ['Item 1', 'Item 2', 'Item 3'];
+//     $scope.addTodo = function(err, result) {
+//		if (err) {
+// 			console.log("Encountered an error: " + err);
+// 		} else {
+// 			$scope.todos.push($scope.todo);
+// 			$scope.todo = ''; 
+// 		}
+//     };
+//   });
