@@ -5,7 +5,8 @@ angular.module('todoApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui'
+  'ui',
+  'LocalStorageModule'
 ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -17,3 +18,7 @@ angular.module('todoApp', [
         redirectTo: '/'
       });
   });
+  .config(['localStorageServerProvider', function(localStorageServerProvider)
+  {
+    localStorageServerProvider.setPrefix('ls');
+  }]);
