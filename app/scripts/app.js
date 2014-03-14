@@ -8,6 +8,9 @@ angular.module('todoApp', [
   'ui',
   'LocalStorageModule'
 ])
+  .config(['localStorageServiceProvider', function(localStorageServiceProvider){
+    localStorageServiceProvider.setPrefix('ls');
+  }])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -18,7 +21,3 @@ angular.module('todoApp', [
         redirectTo: '/'
       });
   });
-  .config(['localStorageServerProvider', function(localStorageServerProvider)
-  {
-    localStorageServerProvider.setPrefix('ls');
-  }]);
