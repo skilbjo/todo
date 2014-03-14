@@ -6,6 +6,8 @@ angular.module('todoApp')
 
 		$scope.todos = todosInStore && todosInStore.split('\n') || [];
 
+		// $scope.todos = [];
+
 		$scope.$watch('todos', function() {
 			localStorageService.add('todos', $scope.todos.join('\n'));
 		}, true);
